@@ -34,7 +34,15 @@ class: center, middle, inverse, title-slide
 ---
 ## But without some additional modifications, it can be challenging to make *your* website stand out from the rest. 
 
-In order to make those changes, we need to dive a bit into the world of CSS. Some of you may have already heard of CSS, but what really is it? Let's dive in.
+&lt;br&gt;
+
+.center[
+&lt;img src="img/unique.gif" width="55%" /&gt;
+]
+
+&lt;br&gt;
+
+In order to make those changes, we need to dive a bit into the world of **CSS**. Some of you may have already heard of and/or used CSS -- that's great! We're going to spend a few minutes first learning about what makes a web page...look like a web page, then apply what we learn to our own `{distill}` sites.
 
 ---
 ## HTML &amp; CSS are the building blocks of web pages
@@ -111,14 +119,10 @@ HTML consists of a series of **elements**, comprised of **opening tags** and **c
 &lt;img src="img/element.png" width="60%" /&gt;
 ]
 
-.center[
-&lt;span style="color: #5F9EA0;"&gt;Rendered as:&lt;/span&gt; &lt;em&gt;Welcome to your first MEDS mini-workshop&lt;/em&gt;
-]
-
 &lt;br&gt;
 
 .footnote[
-In R Markdown syntax: `*Welcome to your first MEDS mini-workshop*` --&gt; *Welcome to your first MEDS mini-workshop*
+In R Markdown syntax: `# Welcome to your first MEDS mini-workshop`
 
 Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started.](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
 ]
@@ -137,22 +141,28 @@ You can also *nest* elements. Remember to close out tags from the inside-out to 
 &lt;img src="img/nested_elements.png" width="60%" /&gt;
 ]
 
-.center[
-&lt;span style="color: #5F9EA0;"&gt;Rendered as:&lt;/span&gt; &lt;em&gt;Welcome to your first &lt;strong&gt;MEDS&lt;/strong&gt; mini-workshop&lt;/em&gt;
-]
-
 &lt;br&gt;
 
 .footnote[
-In R Markdown syntax: `*Welcome to your first **MEDS** mini-workshop*` --&gt; *Welcome to your first **MEDS** mini-workshop*
+In R Markdown syntax: `# Welcome to your first **MEDS** mini-workshop` 
 
 Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started.](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
 ]
 
 ---
-## attributes here
+## A *light* introduction to HTML
 
-CONTENT CONTENT CONTENT
+HTML elements can also have **attributes** which contain extra information about the element that will not be rendered as visual content on the web page. Attributes can be used in many powerful ways, but one is to target subsets of elements for styling with CSS.
+
+.center[
+**Anatomy of an attribute:**
+]
+
+&lt;!-- .center[ --&gt;
+&lt;!-- ```{r echo = FALSE, out.width = '60%'} --&gt;
+&lt;!-- knitr::include_graphics("img/attribute.png") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ] --&gt;
 
 ---
 # Some commonly used html elements
@@ -237,19 +247,91 @@ But what's even *more* magical is how easy `{distill}` makes it to customize you
 ]
 
 ---
+## Start by making sure you have a CSS file in your web page repo's root directory
 
-## Resources
+If you do not already have a `.css` file, you can generate one by running the `distill::create_theme()` function in your console as follows:
 
-#### **HTML**
-* [Getting started with HTML, by MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
 
-#### **CSS**
-* [What is CSS?, by MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS)
-* [Distill: Custom CSS Styles](https://rstudio.github.io/distill/website.html#custom-style)
+```r
+# the `name` argument sets the name of the theme file, e.g. `theme.css`
+# the `edit` argument opens an editor (in RStudio) for the theme file
 
-#### **Other**
-* [Google Fonts](https://fonts.google.com/)
-* [Colorpick Eyedropper - Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en)
+distill::create_theme(name = "theme", edit = TRUE)
+```
+
+--
+
+This function creates a file named `theme` with the file extension `.css`. Here is where you will define CSS custom properties and/or edit existing default values. You'll notice that there are a series of CSS rules, that should look similar to the example shown earlier (slide 11 - LINK THIS). They take the format:
+
+
+```r
+scope { # think of 'scope' as the 'selector'
+  --some-property:       some-value; # e.g. --code-size:    50px;
+  --another-property:    another-value; # e.g.  --title-color:   #333CFF;
+}
+```
+
+.footnote[
+This content has been adapted from the `{distill}` document on theming. This is a *great* resource for getting started on web page customization. You can find that [here](https://rstudio.github.io/distill/website.html#theming).
+]
+
+---
+## The 'out-of-the-box' `theme.css` file
+
+.center[
+&lt;img src="img/theme_file.png" width="70%" /&gt;
+]
+
+---
+## Apply your theme to your `{distill}` website
+
+Add a theme key to the top-level of your `_site.yaml` configuration file along with the name of your `.css` file (e.g. mine is named `theme.css`). For example:
+
+
+```r
+name: "samanthacsik.github.io"
+title: "Samantha Csik"
+*theme: theme.css
+description: |
+  Samantha Csik
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Publications"
+      href: publications.html
+    - text: "Posts"
+      href: posts.html
+    - text: "Projects"
+      href: projects.html
+    - text: "Teaching"
+      href: teaching.html
+    - text: "Curriculum Vitae"
+      href: CV.html
+output: distill::distill_article
+```
+
+---
+## Edits we'll make today (EDIT THIS)
+
+1. Changing default theme values
+  a. Banner colors
+  b. Font size
+2. Apply a custom Google font(s)
+3. Add your very own custom CSS rules
+4. coder's life hack: drawing inspriation from other distill sties
+
+---
+# Change default theme values
+
+[HTML color picker](https://htmlcolorcodes.com/color-picker/)
+[Colorpick Eyedropper - Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en)
+
+---
+## Import &amp; use custom Google Fonts
+
+[Google Fonts](https://fonts.google.com/)
 
 ---
 class: center, middle
