@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Customizing Your Personal Website Using CSS</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sam Csik" />
+    <script src="customizing_websites_css_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Customizing Your Personal Website Using CSS
+## MEDS 2021-22
+### Sam Csik
+### August 31st, 2021
+
+---
+
+
+
+
+
+
+## So you've created your personal website using `{distill}`...
+
+[`{distill}`](https://rstudio.github.io/distill/) gives us with an easy-to-use web publishing format to create our personal websites. A massive benefit is that these websites already look pretty slick right out of the box. 
+
+.center[
+&lt;img src="img/sam_distill.png" width="55%" /&gt;
+]
+
+---
+## But without some additional modifications, it can be challenging to make *your* website stand out from the rest. 
+
+In order to make those changes, we need to dive a bit into the world of CSS. Some of you may have already heard of CSS, but what really is it? Let's dive in.
+
+---
+## HTML &amp; CSS are the building blocks of web pages
+
+**HTML** (Hypertext Markup Language) is a *markup language&lt;sup&gt;1&lt;/sup&gt;* that tells web browsers how to *structure* web pages. You can think of HTML as the *skeleton* of a web page. It gives authors the means to create things like headings, text, tables, lists, add media, etc.
+
+**CSS** (Cascading Style Sheets) is a programming language that allows you to control how HTML elements *look* on a web page. You can think of CSS as the *outfit* that is styling the skeleton. It allows authors to control aspects such as the colors, layout, and font style.
+
+.center[
+&lt;img src="img/html_css_lego.jpeg" width="40%" /&gt;
+]
+
+.center[
+Source: Nicolas Karasiak, [GitHub: nkaraskiak/Illustration](https://github.com/nkarasiak/Illustration/tree/master/LegoJavascript)
+]
+
+.footnote[
+&lt;sup&gt;1&lt;/sup&gt; **[Markdown](https://www.markdownguide.org/)** and **[R Markdown](https://rmarkdown.rstudio.com/)** are both lightweight markup languages -- they're a bit easier for humans to write and read than HTML. HTML is more expressive and allows for customization that is difficult or impossible to do in Markdown.
+]
+
+---
+## Your browser has its own internal style sheet to render HTML
+
+.center[
+Your browser will style HTML documents using an internal style sheet, which ensures that headings are larger than normal text, links are highlighted, lists and tables are structured correctly, etc.
+]
+
+.pull-left[
+&lt;img src="img/website_html.png" width="100%" /&gt;
+.center[
+HTML
+]
+]
+
+.pull-right[
+&lt;img src="img/website_basic_styling.png" width="100%" /&gt;
+.center[
+Browser default styling
+]
+]
+
+---
+
+## CSS adds **pizzazz** to web page renderings
+
+.center[
+CSS allows website developers to add additional styling to web browser defaults. Otherwise, websites would be pretty boring to look at (and they'd all generally look the same).
+]
+
+.pull-left[
+&lt;img src="img/website_basic_styling.png" width="100%" /&gt;
+.center[
+Browser default styling
+]
+]
+
+.pull-right[
+&lt;img src="img/website_with_css.png" width="100%" /&gt;
+.center[
+CSS styling
+]
+]
+
+---
+## A *light* introduction to HTML
+
+HTML consists of a series of **elements**, comprised of **opening tags** and **closing tags** that render some form of content in a particular way.
+
+.center[
+**The basic anatomy of an HTML element:**
+]
+
+.center[
+&lt;img src="img/element.png" width="60%" /&gt;
+]
+
+.center[
+&lt;span style="color: #5F9EA0;"&gt;Rendered as:&lt;/span&gt; &lt;em&gt;Welcome to your first MEDS mini-workshop&lt;/em&gt;
+]
+
+&lt;br&gt;
+
+.footnote[
+In R Markdown syntax: `*Welcome to your first MEDS mini-workshop*` --&gt; *Welcome to your first MEDS mini-workshop*
+
+Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started.](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
+]
+
+---
+## A *light* introduction to HTML
+
+You can also *nest* elements. Remember to close out tags from the inside-out to avoid unexpected renderings.
+
+&lt;br&gt;
+ 
+.center[
+**Nested HTML elements:**
+]
+.center[
+&lt;img src="img/nested_elements.png" width="60%" /&gt;
+]
+
+.center[
+&lt;span style="color: #5F9EA0;"&gt;Rendered as:&lt;/span&gt; &lt;em&gt;Welcome to your first &lt;strong&gt;MEDS&lt;/strong&gt; mini-workshop&lt;/em&gt;
+]
+
+&lt;br&gt;
+
+.footnote[
+In R Markdown syntax: `*Welcome to your first **MEDS** mini-workshop*` --&gt; *Welcome to your first **MEDS** mini-workshop*
+
+Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started.](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
+]
+
+---
+## attributes here
+
+CONTENT CONTENT CONTENT
+
+---
+# Some commonly used html elements
+
+* `&lt;h1&gt;&lt;/h1&gt;`: creates a first-level heading (largest)
+* `&lt;h6&gt;&lt;/h6&gt;`: creates a sixth-level (smallest)
+* `&lt;p&gt;&lt;/p&gt;`: begins a new paragraph
+* `&lt;br&gt;&lt;/br&gt;`: adds a line break 
+* `&lt;a href =&gt;&lt;/a&gt;`:
+* `&lt;b&gt;&lt;/b&gt;` or `&lt;strong&gt;&lt;/strong&gt;`: bolded text
+* `&lt;i&gt;&lt;/i&gt;` or `&lt;em&gt;&lt;/em&gt;`: italicized text
+
+---
+## A *light* introduction to CSS
+
+CSS is a rule-based language, meaning that it allows you to define groups of styles that should be applied to particular elements or groups of elements on a web page. For example, *"I want all first-level (`&lt;h1&gt;`) headings to be large green text"* would be coded as:
+
+.pull-left[
+&lt;img src="img/CSS_syntax.png" width="100%" /&gt;
+]
+
+.pull-right[
+* **Selectors** select the HTML element to style *(e.g. first-level headings, `&lt;h1&gt;`)*
+* **Declarations** sit inside curly brackets, `{}`, and are made up of **property** and **value** pairs. Each pair specifies the property of the HTML element(s) you're selecting *(e.g. the color property of the element `&lt;h1&gt;`)*, and a value you'd like to assign that property *(e.g. green)*
+* A property and its corresponding value are separated by a colon, `:`. Declarations end with a semicolon, `;`
+]
+
+&lt;br&gt;
+
+.footnote[
+Source: [“What Is CSS? - Learn Web Development: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS.](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS) 
+]
+
+---
+## "Inspect"ing web pages allows you to view and edit HTML &amp; CSS source code
+
+*Don't worry -- any edits you make are only visible to you and will disappear if you refresh the web page!* Using the "Inspect" tool is a great way to get a better sense of how CSS is used to modify particular HTML elements.
+
+Navigate to any web page and *right click* on an element of interest (e.g. text, images, links, etc.) and choose *Inspect* to pull up the underlying HTML &amp; CSS files. Here, I am going to  inspect the yellow dot, which tells users that the respository, `rladies/meetup-presentations_santabarbara`, contains JavaScript files.
+
+.center[
+&lt;img src="img/yellow_js.png" width="50%" /&gt;
+]
+
+---
+## Make some edits to a web page's style by altering declaration values
+
+.center[
+&lt;img src="img/inspect_repo_lang_color.png" width="70%" /&gt;
+]
+
+---
+## Make some edits to a web page's style by altering declaration values
+
+.center[
+&lt;img src="img/repo_lang_color_updated_size.png" width="70%" /&gt;
+]
+
+---
+## Check out your web page with its "edited" CSS!
+
+.center[
+&lt;img src="img/big_dots.png" width="65%" /&gt;
+]
+
+.center[
+*Refreshing the web page will revert any changes you made.*
+]
+---
+## Okay that was like...
+
+&lt;br&gt;
+
+.center[
+&lt;img src="img/magic.gif" width="50%" /&gt;
+]
+
+&lt;br&gt;
+
+.center[
+But what's even *more* magical is how easy `{distill}` makes it to customize your site's CSS.
+]
+
+---
+
+## Resources
+
+#### **HTML**
+* [Getting started with HTML, by MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
+
+#### **CSS**
+* [What is CSS?, by MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS)
+* [Distill: Custom CSS Styles](https://rstudio.github.io/distill/website.html#custom-style)
+
+#### **Other**
+* [Google Fonts](https://fonts.google.com/)
+* [Colorpick Eyedropper - Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en)
+
+---
+class: center, middle
+
+# Now get to customizing!
+
+&lt;img src="img/hacker.gif" width="60%" /&gt;
+
+Slides created via the R packages:
+
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[**gadenbuie/xaringanthemer**](https://github.com/gadenbuie/xaringanthemer)
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
