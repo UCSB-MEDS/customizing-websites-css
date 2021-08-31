@@ -51,7 +51,7 @@ style_mono_accent(
 
 You should already have a `{distill}` website (or at least the bones of one) deployed using github pages. Importantly, this website should also have *some* content (e.g. text, headings, etc.) for us to customize.
 
-If you first need to get your web site up and running, follow along with these [step-by-step instructions](https://docs.google.com/document/d/1c0SZiVvp32UTJ9sK_yVjI8ou6pVdFRXsY2236tiTA1c/edit) by Allison Horst before moving forward.
+If you first need to get your website up and running, follow along with these [step-by-step instructions](https://docs.google.com/document/d/1c0SZiVvp32UTJ9sK_yVjI8ou6pVdFRXsY2236tiTA1c/edit) by Allison Horst before moving forward.
 
 ---
 ## So you've created your personal website using `{distill}`...
