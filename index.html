@@ -507,9 +507,64 @@ One of the more challenging parts of creating custom CSS rules (for newbies like
 ]
 
 ---
+## Let's try borrowing some code
+
+I came across [Jenna Eagleson's web site](https://jeagleso.github.io/website/) on the [Distillery Showcase](https://distillery.rbind.io/showcase.html) and loved the way her headings appear. You can check out all of her custom CSS rules at the bottom of her website's [theme.css file](https://github.com/jeagleso/website/blob/main/theme.css).
+
+.pull-left[
+&lt;img src="img/JEagleson.png" width="100%" /&gt;
+]
+
+.pull-right[
+&lt;img src="img/JEagleson_theme.png" width="100%" /&gt;
+]
+
+---
+## Adapting custom CSS rules for your own website
+
+I see a rule, which styles any `h1` - `h6` heading elements with a particular font-weight, color, and spacign between letters. 
+
+```css
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: #3D5A80;
+}
+```
+
+I just want to apply the letter-spacing and font weight styles to my headings, so I'll borrow those declarations and omit the color declaration. I'm also going to increase the letter-spacing style from `2px` to `5px`:
+
+```css
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+```
+
+---
+## Voila!
+
+.pull-left[
+&lt;img src="img/half_edit.png" width="100%" /&gt;
+.center[
+Without letter spacing
+]
+]
+
+.pull-right[
+&lt;img src="img/full_edit.png" width="100%" /&gt;
+.center[
+With letter spacing
+]
+]
+
+
+---
 class: center, middle
 
 ## The "other stuff"
+&lt;br&gt;
+### At this point, that just includes adding your CV to your website
 
 ---
 ## Add your CV to your website
