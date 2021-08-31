@@ -47,6 +47,14 @@ style_mono_accent(
 )
 ```
 
+```{css, echo = FALSE, message = FALSE, warning = FALSE}
+.remark-code { 
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+  font-size: 70%;
+ }
+
+```
+
 ## Prerequisites 
 
 You should already have a `{distill}` website (or at least the bones of one) deployed using github pages. Importantly, this website should also have *some* content (e.g. text, headings, etc.) for us to customize.
