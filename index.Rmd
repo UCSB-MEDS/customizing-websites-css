@@ -1,5 +1,5 @@
 ---
-title: "Customizing Your Personal Website Using CSS (and other tricks)"
+title: "Customizing Your Personal Website Using CSS (and some other stuff)"
 subtitle: "MEDS 2021-22"
 author: "Sam Csik"
 date: "August 31st, 2021"
@@ -542,7 +542,7 @@ knitr::include_graphics("img/pink_h3.png")
 ]
 
 ---
-## Cheat code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
+## "Cheat" code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
 
 For example, you can use the `<span>` tag styled with CSS to update text in your `.Rmd` file. 
 
@@ -569,11 +569,29 @@ knitr::include_url("https://distillery.rbind.io/")
 .footnote[
 One of the more challenging parts of creating custom CSS rules (for newbies like myself) is knowing what **selectors** to use and what is design patterns are even possible. Looking at (and borrowing) source code for other `{distill}` sites can help jump start your own custom CSS styling.
 ]
----
 
 ---
-## Miscellaneous website customizations
+class: center, middle
 
+## The "other stuff"
+
+---
+## Add your CV to your website
+
+There are a few ways to include your resume/CV on your website. 
+
+1. Translate your CV content into your `.Rmd` using R Markdown syntax 
+2. Add a link for visitors to download your CV.pdf 
+    * for example: `[Download my CV here](file/path/to/my/cv.pdf)` would render as [Download my CV here](img/SCsik_CV_NCEASDataTrainingCoordinator.pdf)
+3. Add a scrollable plugin<sup>1</sup> to render your pdf directly on-screen
+
+```{r, echo = FALSE, message = FALSE, out.width = '100%', out.height = '40%'}
+knitr::include_graphics("img/SCsik_CV_NCEASDataTrainingCoordinator.pdf")
+```
+
+.footnote[
+<sup>1</sup>I'm still trouble-shooting this method...open to any and all tips if you've figured this out already!
+]
 ---
 class: center, middle
 

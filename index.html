@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Customizing Your Personal Website Using CSS (and other tricks)</title>
+    <title>Customizing Your Personal Website Using CSS (and some other stuff)</title>
     <meta charset="utf-8" />
     <meta name="author" content="Sam Csik" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Customizing Your Personal Website Using CSS (and other tricks)
+# Customizing Your Personal Website Using CSS (and some other stuff)
 ## MEDS 2021-22
 ### Sam Csik
 ### August 31st, 2021
@@ -482,7 +482,7 @@ h3 {
 ]
 
 ---
-## Cheat code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
+## "Cheat" code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
 
 For example, you can use the `&lt;span&gt;` tag styled with CSS to update text in your `.Rmd` file. 
 
@@ -505,11 +505,27 @@ For example, you can use the `&lt;span&gt;` tag styled with CSS to update text i
 .footnote[
 One of the more challenging parts of creating custom CSS rules (for newbies like myself) is knowing what **selectors** to use and what is design patterns are even possible. Looking at (and borrowing) source code for other `{distill}` sites can help jump start your own custom CSS styling.
 ]
----
 
 ---
-## Miscellaneous website customizations
+class: center, middle
 
+## The "other stuff"
+
+---
+## Add your CV to your website
+
+There are a few ways to include your resume/CV on your website. 
+
+1. Translate your CV content into your `.Rmd` using R Markdown syntax 
+2. Add a link for visitors to download your CV.pdf 
+    * for example: `[Download my CV here](file/path/to/my/cv.pdf)` would render as [Download my CV here](img/SCsik_CV_NCEASDataTrainingCoordinator.pdf)
+3. Add a scrollable plugin&lt;sup&gt;1&lt;/sup&gt; to render your pdf directly on-screen
+
+&lt;embed src="img/SCsik_CV_NCEASDataTrainingCoordinator.pdf" width="100%" height="40%" type="application/pdf" /&gt;
+
+.footnote[
+&lt;sup&gt;1&lt;/sup&gt;I'm still trouble-shooting this method...open to any and all tips if you've figured this out already!
+]
 ---
 class: center, middle
 
