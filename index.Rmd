@@ -482,7 +482,7 @@ html {
 <br> 
 
 .footnote[
-<sup>1</sup>Generate Hex color codes using the [HTML color picker](https://htmlcolorcodes.com/color-picker/), or install the [Colorpick Eyedropper Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en), which allows you to select color values directly from web pages. <sup>2</sup>A note on `rgba(red, green, blue, alpha)`: the `red` argument, for example, defines the intensity of red between 0-255 or a % value between 0-100%; the `alpha` argument defines opacity as a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+<sup>1</sup>Generate Hex color codes using the [HTML color picker](https://htmlcolorcodes.com/color-picker/), or install the [Colorpick Eyedropper Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en), which allows you to select color values directly from web pages. <sup>2</sup>A note on `rgba(red, green, blue, alpha)`: the `red` argument, for example, defines the intensity of red between 0-255 or a % value between 0-100%; the `alpha` argument defines opacity as a number between 0.0 (fully transparent) and 1.0 (fully opaque). You can convert any Hex color code to `RBG` values using an online [converter](https://www.rapidtables.com/convert/color/hex-to-rgb.html).
 ]
 
 ---
