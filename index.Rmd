@@ -609,7 +609,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 ```
 
-I just want to apply the letter-spacing and font weight styles to my headings, so I'll borrow those declarations and omit the color declaration. I'm also going to increase the letter-spacing style from `2px` to `5px`:
+I just want to apply the letter-spacing and font-weight styles to my headings, so I'll borrow those declarations and omit the color declaration. I'm also going to increase the letter-spacing style from `2px` to `5px`:
 ```{css, eval = FALSE}
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 5px;
