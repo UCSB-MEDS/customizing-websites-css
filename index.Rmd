@@ -95,7 +95,7 @@ In order to make those changes, we need to dive a bit into the world of **CSS**.
 **CSS** (Cascading Style Sheets) is a programming language that allows you to control how HTML elements *look* on a web page. You can think of CSS as the *outfit* that is styling the skeleton. It allows authors to control aspects such as the colors, layout, and font style.
 
 .center[
-```{r echo = FALSE, out.width = '40%'}
+```{r echo = FALSE, out.width = '35%'}
 knitr::include_graphics("img/html_css_lego.jpeg")
 ```
 ]
