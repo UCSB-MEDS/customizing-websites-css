@@ -500,6 +500,9 @@ html {
 }
 ```
 
+.footnote[
+**Pixels** (`px`) are relative to screen size. For low-dpi (Dots Per Inch) devices, 1px is one device pixel of the display. For high resolution screens, 1px implies multiple device pixels.
+]
 ---
 ## Defining your own CSS rules may require some "Inspect"ing
 
