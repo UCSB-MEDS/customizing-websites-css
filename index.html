@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Customizing Your Personal Website Using CSS</title>
+    <title>Customizing Your Personal Website Using CSS (and other tricks)</title>
     <meta charset="utf-8" />
     <meta name="author" content="Sam Csik" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Customizing Your Personal Website Using CSS
+# Customizing Your Personal Website Using CSS (and other tricks)
 ## MEDS 2021-22
 ### Sam Csik
 ### August 31st, 2021
@@ -23,6 +23,13 @@ class: center, middle, inverse, title-slide
 
 
 
+## Prerequisites 
+
+You should already have a `{distill}` website (or at least the bones of one) deployed using github pages. Importantly, this website should also have *some* content (e.g. text, headings, etc.) for us to customize.
+
+If you first need to get your web site up and running, follow along with these [step-by-step instructions](https://docs.google.com/document/d/1c0SZiVvp32UTJ9sK_yVjI8ou6pVdFRXsY2236tiTA1c/edit) by Allison Horst before moving forward.
+
+---
 ## So you've created your personal website using `{distill}`...
 
 [`{distill}`](https://rstudio.github.io/distill/) gives us with an easy-to-use web publishing format to create our personal websites. A massive benefit is that these websites already look pretty slick right out of the box. 
@@ -107,7 +114,7 @@ CSS styling
 ]
 
 ---
-## A *light* introduction to HTML
+## A *light* introduction to HTML - elements
 
 HTML consists of a series of **elements**, comprised of **opening tags** and **closing tags** that render some form of content in a particular way.
 
@@ -128,7 +135,7 @@ Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web
 ]
 
 ---
-## A *light* introduction to HTML
+## A *light* introduction to HTML - nested elements
 
 You can also *nest* elements. Remember to close out tags from the inside-out to avoid unexpected renderings.
 
@@ -150,42 +157,54 @@ Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web
 ]
 
 ---
-## A *light* introduction to HTML
+## A *light* introduction to HTML - attributes
 
-HTML elements can also have **attributes** which contain extra information about the element that will not be rendered as visual content on the web page. Attributes can be used in many powerful ways, but one is to target subsets of elements for styling with CSS.
+HTML elements can also have **attributes** which contain extra information about the element that will not be rendered as visual content&lt;sup&gt;1&lt;/sup&gt; on the web page. Attributes can be used in many powerful ways -- one way is to provide a class or ID as an identifier to be used for targeted styling with CSS. We will come back to this concept in a little bit.
 
 .center[
-**Anatomy of an attribute:**
+**The basic anatomy of an attribute:**
 ]
 
-&lt;!-- .center[ --&gt;
-&lt;!-- ```{r echo = FALSE, out.width = '60%'} --&gt;
-&lt;!-- knitr::include_graphics("img/attribute.png") --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ] --&gt;
+.center[
+&lt;img src="img/attribute.png" width="60%" /&gt;
+]
+
+&lt;br&gt; 
+
+.footnote[
+&lt;sup&gt;1&lt;/sup&gt;One example that you may already be familiar with is **alt text**. While you add alt text to the top of code chunks, knitting your `.Rmd` will actually add that text as an attribute on the visual content you generate (e.g. a `ggplot`) -- you cannot see it rendered on the screen, but screen readers can find it by searching for any content with the `alt` attribute to read aloud for visually impaired users.
+
+Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started.](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
+]
+
 
 ---
 # Some commonly used html elements
 
+* `&lt;div&gt;&lt;/div&gt;`: group common elements
+* `&lt;img&gt;&lt;/img&gt;`: present an image
 * `&lt;h1&gt;&lt;/h1&gt;`: creates a first-level heading (largest)
 * `&lt;h6&gt;&lt;/h6&gt;`: creates a sixth-level (smallest)
 * `&lt;p&gt;&lt;/p&gt;`: begins a new paragraph
 * `&lt;br&gt;&lt;/br&gt;`: adds a line break 
-* `&lt;a href =&gt;&lt;/a&gt;`:
-* `&lt;b&gt;&lt;/b&gt;` or `&lt;strong&gt;&lt;/strong&gt;`: bolded text
-* `&lt;i&gt;&lt;/i&gt;` or `&lt;em&gt;&lt;/em&gt;`: italicized text
+* `&lt;strong&gt;&lt;/strong&gt;`: bolded text
+* `&lt;em&gt;&lt;/em&gt;`: italicized text
+* `&lt;a&gt;&lt;/a&gt;`: anchors (i.e. links) an HTML page to another page 
+    * e.g. `&lt;a href="https://ucsb-meds.github.io/"&gt;text_I_want_to_hyperlink&lt;/a&gt;`)
+* `&lt;span&gt;&lt;/span&gt;`: an inline container used to markup part of a text or document
+    * e.g. `My favorite color is &lt;span style="color:green"&gt;green&lt;/span&gt;.`
 
 ---
 ## A *light* introduction to CSS
 
-CSS is a rule-based language, meaning that it allows you to define groups of styles that should be applied to particular elements or groups of elements on a web page. For example, *"I want all first-level (`&lt;h1&gt;`) headings to be large green text"* would be coded as:
+CSS is a rule-based language, meaning that it allows you to define groups of styles that should be applied to particular elements or groups of elements on a web page. For example, *"I want all first-level (`&lt;h1&gt;`) headings to be large green text"* could be coded as:
 
 .pull-left[
 &lt;img src="img/CSS_syntax.png" width="100%" /&gt;
 ]
 
 .pull-right[
-* **Selectors** select the HTML element to style *(e.g. first-level headings, `&lt;h1&gt;`)*
+* **Selectors** define a condition to match HTML elements *(e.g. first-level headings, `&lt;h1&gt;`)*
 * **Declarations** sit inside curly brackets, `{}`, and are made up of **property** and **value** pairs. Each pair specifies the property of the HTML element(s) you're selecting *(e.g. the color property of the element `&lt;h1&gt;`)*, and a value you'd like to assign that property *(e.g. green)*
 * A property and its corresponding value are separated by a colon, `:`. Declarations end with a semicolon, `;`
 ]
@@ -199,33 +218,33 @@ Source: [“What Is CSS? - Learn Web Development: MDN.” Learn Web Development 
 ---
 ## "Inspect"ing web pages allows you to view and edit HTML &amp; CSS source code
 
-*Don't worry -- any edits you make are only visible to you and will disappear if you refresh the web page!* Using the "Inspect" tool is a great way to get a better sense of how CSS is used to modify particular HTML elements.
+*Don't worry -- any edits you make are only visible to you and will disappear when you refresh the web page!* Using the "Inspect" tool is a great way to get a better sense of how CSS is used to modify particular HTML elements.
 
-Navigate to any web page and *right click* on an element of interest (e.g. text, images, links, etc.) and choose *Inspect* to pull up the underlying HTML &amp; CSS files. Here, I am going to  inspect the yellow dot, which tells users that the respository, `rladies/meetup-presentations_santabarbara`, contains JavaScript files.
+Navigate to any web page and *right click* on an element of interest (e.g. text, images, links, etc.) and choose *Inspect* to pull up the underlying HTML &amp; CSS files. Here, I am going to  inspect the dark blue banner along the top of my `{distill}` website.
 
 .center[
-&lt;img src="img/yellow_js.png" width="50%" /&gt;
+&lt;img src="img/distill_banner_inspect1.png" width="50%" /&gt;
+]
+
+---
+## An "Inspect" roadmap
+
+.center[
+&lt;img src="img/distill_banner_inspect2.png" width="70%" /&gt;
 ]
 
 ---
 ## Make some edits to a web page's style by altering declaration values
 
 .center[
-&lt;img src="img/inspect_repo_lang_color.png" width="70%" /&gt;
-]
-
----
-## Make some edits to a web page's style by altering declaration values
-
-.center[
-&lt;img src="img/repo_lang_color_updated_size.png" width="70%" /&gt;
+&lt;img src="img/distill_banner_inspect3.png" width="70%" /&gt;
 ]
 
 ---
 ## Check out your web page with its "edited" CSS!
 
 .center[
-&lt;img src="img/big_dots.png" width="65%" /&gt;
+&lt;img src="img/distill_banner_inspect4.png" width="65%" /&gt;
 ]
 
 .center[
@@ -243,7 +262,7 @@ Navigate to any web page and *right click* on an element of interest (e.g. text,
 &lt;br&gt;
 
 .center[
-But what's even *more* magical is how easy `{distill}` makes it to customize your site's CSS.
+But what's even *more* magical is how easy `{distill}` makes it to actually customize parts of your site's appearance using CSS.
 ]
 
 ---
@@ -261,7 +280,7 @@ distill::create_theme(name = "theme", edit = TRUE)
 
 --
 
-This function creates a file named `theme` with the file extension `.css`. Here is where you will define CSS custom properties and/or edit existing default values. You'll notice that there are a series of CSS rules, that should look similar to the example shown earlier (slide 11 - LINK THIS). They take the format:
+This function creates a file named `theme` with the file extension `.css`. Here is where you will define CSS custom properties and/or edit existing default values. You'll notice that there are a series of CSS rules, that should look similar to the example shown earlier (slide 12). They take the format:
 
 
 ```r
@@ -272,7 +291,7 @@ scope { # think of 'scope' as the 'selector'
 ```
 
 .footnote[
-This content has been adapted from the `{distill}` document on theming. This is a *great* resource for getting started on web page customization. You can find that [here](https://rstudio.github.io/distill/website.html#theming).
+This content has been adapted from the `{distill}` document on theming. This is a *great* resource for getting started on web page customization. You can find that document [here](https://rstudio.github.io/distill/website.html#theming).
 ]
 
 ---
@@ -313,26 +332,175 @@ output: distill::distill_article
 ```
 
 ---
-## Edits we'll make today (EDIT THIS)
+## So where do we start styling??
 
-1. Changing default theme values
-  a. Banner colors
-  b. Font size
-2. Apply a custom Google font(s)
-3. Add your very own custom CSS rules
-4. coder's life hack: drawing inspriation from other distill sties
+.center[
+&lt;img src="img/mind_blown.png" width="35%" /&gt;
+]
 
 ---
-# Change default theme values
+## Import custom Google Fonts at the top of your `theme.css` file
 
-[HTML color picker](https://htmlcolorcodes.com/color-picker/)
-[Colorpick Eyedropper - Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en)
+&lt;br&gt; 
+
+**Steps for applying custom Google fonts:**
+1. explore Google font styles [here](https://fonts.google.com/) (there are *many* to choose from)
+
+2. embed the font(s) at the top of your `theme.css` file using the [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) method&lt;sup&gt;1&lt;/sup&gt; where prompted (i.e. **before** any rules are specified). Below, I'm importing the fonts, **Caveat** and **Montserrat**.
+
+3. specify your imported font style as values on the appropriate property types (*continued on next slide*)
+
+
+```css
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css2?family=Caveat');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+```
+
+.footnote[
+&lt;sup&gt;1&lt;/sup&gt;The Google fonts website will generate the `@import` code for your chosen font. Choose a font family and select a particular style. Click on the *Selected families* icon in the upper right hand corner and choose the `@import` radio button under *Use on the web*. Copy and paste the code into your CSS file.
+]
 
 ---
-## Import &amp; use custom Google Fonts
+# Change default font styles to any of your imported fonts
 
-[Google Fonts](https://fonts.google.com/)
 
+```css
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000; 
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+*  --heading-font:    Montserrat; /* default = sans-serif */
+*  --mono-font:       monospace;
+*  --body-font:       Caveat; /* default = sans-serif */
+*  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+```
+---
+## Change default font colors by altering hex color codes&lt;sup&gt;1&lt;/sup&gt; or adjusting `rbga()` values&lt;sup&gt;2&lt;/sup&gt;
+
+
+```css
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+*  --title-color:     #000000;
+*  --header-color:    rgba(0, 0, 0, 0.8);
+*  --body-color:      rgba(0, 0, 0, 0.8);
+*  --aside-color:     rgba(0, 0, 0, 0.6);
+*  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+```
+
+&lt;br&gt; 
+
+.footnote[
+&lt;sup&gt;1&lt;/sup&gt;Generate Hex color codes using the [HTML color picker](https://htmlcolorcodes.com/color-picker/), or install the [Colorpick Eyedropper Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en), which allows you to select color values directly from web pages. &lt;sup&gt;2&lt;/sup&gt;A note on `rgba(red, green, blue, alpha)`: the `red` argument, for example, defines the intensity of red between 0-255 or a % value between 0-100%; the `alpha` argument defines opacity as a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+]
+
+---
+## Change default font sizes
+
+
+```css
+html {
+  /*-- Main font sizes --*/
+*  --title-size:      50px;
+*  --body-size:       1.06rem;
+*  --code-size:       14px;
+*  --aside-size:      12px;
+*  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;}}
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+```
+
+---
+## Defining your own CSS rules may require some "Inspect"ing
+
+Creating custom CSS rules for your web site requires some sleuthing (similar to what we did while "Inspecting" our web page) and an understanding of how to apply [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp). 
+
+For example, say I want to change the color of the headings, *Biography*, *Education*, and *Experience* on my landing page to pink (hex code &lt;span style="color: #C41A60;"&gt;#C41A60&lt;/span&gt;). *Inspecting* these headings reveals that they are all `&lt;h3&gt;` elements. 
+
+.pull-left[
+&lt;img src="img/landing_page.png" width="100%" /&gt;
+]
+
+.pull-right[
+&lt;img src="img/h3.png" width="100%" /&gt;
+]
+
+---
+## Construct custom CSS rules that target groups of elements
+
+Following the [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp) guide, we can construct a custom CSS rule that will color any `&lt;h3&gt;` element on our website &lt;span style="color: #C41A60;"&gt;pink&lt;/span&gt;:
+
+```css
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below */
+  
+h3 {
+  color: #C41A60; 
+}
+```
+
+.center[
+&lt;img src="img/pink_h3.png" width="40%" /&gt;
+]
+
+---
+## Cheat code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
+
+For example, you can use the `&lt;span&gt;` tag styled with CSS to update text in your `.Rmd` file. 
+
+`MA in Ecology, Evolution &amp; Marine Biology, 
+&lt;span style="color: #EC100D;"&gt;2020&lt;/span&gt;` will render as:
+
+.center[
+&lt;img src="img/red2020.png" width="50%" /&gt;
+]
+
+---
+## Get inspired by sites on the [distillery](https://distillery.rbind.io/) and borrow open source code
+
+&lt;br&gt;
+
+.center[
+&lt;iframe src="https://distillery.rbind.io/" width="60%" height="400px"&gt;&lt;/iframe&gt;
+]
+
+---
+## Miscellaneous website custmoizations
 ---
 class: center, middle
 
