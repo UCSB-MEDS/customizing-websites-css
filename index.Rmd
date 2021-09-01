@@ -48,11 +48,10 @@ style_mono_accent(
 ```
 
 ```{css, echo = FALSE, message = FALSE, warning = FALSE}
-.remark-code { 
+.remark-code {
   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
   font-size: 70%;
  }
-
 ```
 
 ## Prerequisites 
