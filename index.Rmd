@@ -637,13 +637,34 @@ With letter spacing
 ]
 ]
 
-
 ---
 class: center, middle
 
 ## The "other stuff"
-<br>
-### At this point, that just includes adding your CV to your website
+
+---
+## Adding a footer to your website
+
+There are a variety of ways to add a footer (the section of content typically included at the bottom of web pages) to your web page. Ultimately, you'll need to add a `_footer.html` file to the root directory of your `distill` site repository. These are the steps I followed:
+
+1. Choose `New File -> R HTML`
+2. Delete all auto-filled content (lines 1-22)
+3. Save and name `_footer.html` (a popup box will ask if you'd like to use the standard extension ".Rhtml" or ".html" -- choose "Use .html")
+4. Add content using HTML markup, save, and knit
+5. Build your site to see you footer!
+
+One great example is the [MEDS Website](https://ucsb-meds.github.io/). The code used to generate that footer is as follows:
+
+```{html, eval = FALSE}
+<p>
+<a href="https://bren.ucsb.edu/"><img src="img/bren_white_logo.png" alt="Bren School logo" style="width:350px;" /></a>
+</p>
+
+<p>
+  This website was made with <u><a href="https://rstudio.github.io/distill/">distill by RStudio</a></u>, and with inspiration from the <u><a href="https://ubc-mds.github.io/">UBC Master of Data Science website</a></u>.
+</p>
+```
+
 
 ---
 ## Add your CV to your website
@@ -665,8 +686,6 @@ knitr::include_graphics("img/cv_example.pdf")
 .footnote[
 <sup>1</sup>I'm still trouble-shooting this method...open to any and all tips if you've figured this out already!
 ]
-
----
 
 ---
 ## Additional Resources
