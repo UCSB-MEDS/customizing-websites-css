@@ -653,7 +653,10 @@ There are a few ways to include your resume/CV on your website.
 1. Translate your CV content into your `.Rmd` using R Markdown syntax 
 2. Add a link for visitors to download your CV.pdf 
     * for example: `[Download my CV here](file/path/to/my/cv.pdf)` would render as [Download my CV here](img/cv_example.pdf)
-3. Add a scrollable plugin<sup>1</sup> to render your pdf directly on-screen
+3. Add a scrollable plugin<sup>1</sup> to render your pdf directly on-screen using the function:
+```{r, eval = FALSE}
+knitr::include_graphics("file/path/to/my/cv.pdf")
+```
 
 ```{r, echo = FALSE, message = FALSE, out.width = '100%', out.height = '40%'}
 knitr::include_graphics("img/cv_example.pdf")
@@ -662,6 +665,8 @@ knitr::include_graphics("img/cv_example.pdf")
 .footnote[
 <sup>1</sup>I'm still trouble-shooting this method...open to any and all tips if you've figured this out already!
 ]
+
+---
 
 ---
 ## Additional Resources
