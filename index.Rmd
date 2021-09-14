@@ -33,7 +33,7 @@ library(xaringanthemer)
 
 # set accent theme
 style_mono_accent(
-  header_font_google = google_font("Josefin Sans"), # Text Me One
+  header_font_google = google_font("Sanchez"), # Josefin Sans
   text_font_google = google_font("Glacial Indifference", "300", "300i"),
   code_font_google = google_font("Fira Mono"),
   base_color = "#05859B",
@@ -669,12 +669,21 @@ One great example is the [MEDS Website](https://ucsb-meds.github.io/). The code 
 ---
 ## Add your CV to your website
 
-There are a few ways to include your resume/CV on your website. 
+There are a few ways to include your resume/CV on your website (aside from translating all your CV content into your `Rmd` using R Markdown syntax). 
 
-1. Translate your CV content into your `.Rmd` using R Markdown syntax 
-2. Add a link for visitors to download your CV.pdf 
+1. Add a link for visitors to download your CV.pdf 
     * for example: `[Download my CV here](file/path/to/my/cv.pdf)` would render as [Download my CV here](img/cv_example.pdf)
-3. Add a scrollable plugin<sup>1</sup> to render your pdf directly on-screen using the function:
+2. Hyperlink your CV.pdf to a navbar tab in `_site.yml` -- when you click on that tab, it takes you directy to a pdf viewer
+```{r, eval = FALSE}
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "CV"
+      href: path/to/my/cv.pdf
+```
+
+3. Add a scrollable plugin<sup>1</sup> to render your pdf directly on-screen using the function
 ```{r, eval = FALSE}
 knitr::include_graphics("file/path/to/my/cv.pdf")
 ```
