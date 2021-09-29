@@ -2,7 +2,7 @@
 title: "Customizing Your Personal Website Using CSS (and some other stuff)"
 subtitle: "MEDS 2021-22"
 author: "Sam Csik"
-date: "August 31st, 2021"
+date: "Summer 2021"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
