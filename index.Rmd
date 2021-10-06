@@ -6,12 +6,14 @@ date: "Summer 2021"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
+    seal: false
     nature:
       slideNumberFormat: "%current%"
       highlightStyle: github
       highlightLines: true
       ratio: 16:9
-      countIncrementalSlides: true
+      countIncrementalSlides: false
+      titleSlideClass: ["left", "middle", "inverse"]
 ---
 
 ```{r setup, include=FALSE}
@@ -32,13 +34,29 @@ knitr::opts_chunk$set(
 library(xaringanthemer)
 
 # set accent theme
+# style_mono_accent(
+#   header_font_google = google_font("Sanchez"), # Josefin Sans
+#   text_font_google = google_font("Glacial Indifference", "300", "300i"),
+#   code_font_google = google_font("Fira Mono"),
+#   base_color = "#05859B",
+#   white_color = "#93C6C2",
+#   background_color = "#FFFFFF",
+#   header_font_weight = 400,
+#   header_h1_font_size = "2.25rem",
+#   header_h2_font_size = "1.75rem",
+#   header_h3_font_size = "1.5rem",
+#   footnote_font_size = "0.7em",
+# )
+
 style_mono_accent(
-  header_font_google = google_font("Sanchez"), # Josefin Sans
+  header_font_google = google_font("Nunito Sans"), # Sanchez
   text_font_google = google_font("Glacial Indifference", "300", "300i"),
   code_font_google = google_font("Fira Mono"),
   base_color = "#05859B",
-  white_color = "#93C6C2",
+  white_color = "#93C6C2", 
   background_color = "#FFFFFF",
+  link_color = "#9b0546",
+  text_bold_color = "#05859B",
   header_font_weight = 400,
   header_h1_font_size = "2.25rem",
   header_h2_font_size = "1.75rem",
@@ -47,12 +65,24 @@ style_mono_accent(
 )
 ```
 
-```{css, echo = FALSE, message = FALSE, warning = FALSE}
-.remark-code {
-  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
-  font-size: 70%;
- }
-```
+
+class: inverse, middle
+
+# Customizing Your Personal Website Using CSS `r fontawesome::fa("css3-alt", fill = "#93C6C2", a11y = "sem")` (and some other stuff)<br>
+
+<br>
+
+<span style = 'font-size: 130%;'>Sam Csik | Data Training Coordinator</span>  
+
+National Center for Ecological Analysis & Synthesis<br>
+
+<br>
+
+<span style = 'font-size: 130%;'>Masters of Environmental Data Science | Summer 2021</span>   
+
+Slides & source code available on [`r fontawesome::fa("github", fill = "#93C6C2", a11y = "sem")`](https://github.com/UCSB-MEDS/customizing-websites-css)
+
+---
 
 ## Prerequisites 
 
