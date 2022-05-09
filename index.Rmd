@@ -5,13 +5,12 @@ author: "Sam Csik"
 date: "Summer 2021"
 output:
   xaringan::moon_reader:
-    css: xaringan-themer.css
+    css: ['xaringan-themer.css', 'my-css.css']
     seal: false
     nature:
       slideNumberFormat: "%current%"
       highlightStyle: github
       highlightLines: true
-      ratio: 16:9
       countIncrementalSlides: false
       titleSlideClass: ["left", "middle", "inverse"]
 ---
@@ -87,26 +86,25 @@ National Center for Ecological Analysis & Synthesis<br>
 Slides & source code available on [`r fontawesome::fa("github", fill = "#93C6C2", a11y = "sem")`](https://github.com/UCSB-MEDS/customizing-websites-css)
 
 ---
-
-## Prerequisites 
+### Prerequisites 
 
 You should already have a `{distill}` website (or at least the bones of one) deployed using github pages. Importantly, this website should also have *some* content (e.g. text, headings, etc.) for us to customize.
 
 If you first need to get your website up and running, follow along with these [step-by-step instructions](https://docs.google.com/document/d/1c0SZiVvp32UTJ9sK_yVjI8ou6pVdFRXsY2236tiTA1c/edit) by Allison Horst before moving forward.
 
 ---
-## So you've created your personal website using `{distill}`...
+### So you've created your personal website using `{distill}`...
 
 [`{distill}`](https://rstudio.github.io/distill/) gives us with an easy-to-use web publishing format to create our personal websites. A massive benefit is that these websites already look pretty slick right out of the box. 
 
 .center[
-```{r echo = FALSE, out.width = '55%'}
+```{r echo = FALSE, out.width = '70%'}
 knitr::include_graphics("img/sam_distill.png")
 ```
 ]
 
 ---
-## But without some additional modifications, it can be challenging to make *your* website stand out from the rest. 
+### But without some additional modifications, it can be challenging to make *your* website stand out from the rest. 
 
 <br>
 
@@ -118,14 +116,14 @@ knitr::include_graphics("img/unique.gif")
 
 <br>
 
-In order to make those changes, we need to dive a bit into the world of **CSS**. Some of you may have already heard of and/or used CSS -- that's great! We're going to spend a few minutes first learning about what makes a web page...look like a web page, then apply what we learn to our own `{distill}` sites.
+<span style = 'font-size: 80%;'>In order to make those changes, we need to dive a bit into the world of **CSS**. Some of you may have already heard of and/or used CSS -- that's great! We're going to spend a few minutes first learning about what makes a web page...look like a web page, then apply what we learn to our own `{distill}` sites.</span>
 
 ---
-## HTML & CSS are the building blocks of web pages
+### HTML & CSS are the building blocks of web pages
 
-**HTML** (Hypertext Markup Language) is a *markup language<sup>1</sup>* that tells web browsers how to *structure* web pages. You can think of HTML as the *skeleton* of a web page. It gives authors the means to create elements like headings, text, tables, lists, add media, etc.
+<span style = 'font-size: 80%;'>**HTML** (Hypertext Markup Language) is a *markup language<sup>1</sup>* that tells web browsers how to *structure* web pages. You can think of HTML as the *skeleton* of a web page. It gives authors the means to create elements like headings, text, tables, lists, add media, etc.</span>
 
-**CSS** (Cascading Style Sheets) is a programming language that allows you to control how HTML elements *look* on a web page. You can think of CSS as the *outfit* that is styling the skeleton. It allows authors to control aspects such as the colors, layout, and font style.
+<span style = 'font-size: 80%;'>**CSS** (Cascading Style Sheets) is a programming language that allows you to control how HTML elements *look* on a web page. You can think of CSS as the *outfit* that is styling the skeleton. It allows authors to control aspects such as the colors, layout, and font style.</span>
 
 .center[
 ```{r echo = FALSE, out.width = '35%'}
@@ -134,7 +132,7 @@ knitr::include_graphics("img/html_css_lego.jpeg")
 ]
 
 .center[
-Source: Nicolas Karasiak, [GitHub: nkaraskiak/Illustration](https://github.com/nkarasiak/Illustration/tree/master/LegoJavascript)
+<span style = 'font-size: 70%;'>Source: Nicolas Karasiak, [GitHub: nkaraskiak/Illustration](https://github.com/nkarasiak/Illustration/tree/master/LegoJavascript)</span>
 ]
 
 <br> 
@@ -144,10 +142,10 @@ Source: Nicolas Karasiak, [GitHub: nkaraskiak/Illustration](https://github.com/n
 ]
 
 ---
-## Your browser has its own internal style sheet to render HTML
+### Your browser has its own internal style sheet to render HTML
 
 .center[
-Your browser will style HTML documents using an internal style sheet, which ensures that headings are larger than normal text, links are highlighted, lists and tables are structured correctly, etc.
+<span style = 'font-size: 80%;'>Your browser will style HTML documents using an internal style sheet, which ensures that headings are larger than normal text, links are highlighted, lists and tables are structured correctly, etc.</span>
 ]
 
 .pull-left[
@@ -155,7 +153,7 @@ Your browser will style HTML documents using an internal style sheet, which ensu
 knitr::include_graphics("img/website_html.png")
 ```
 .center[
-HTML
+<span style = 'font-size: 80%;'>HTML</span>
 ]
 ]
 
@@ -164,16 +162,15 @@ HTML
 knitr::include_graphics("img/website_basic_styling.png")
 ```
 .center[
-Browser default styling
+<span style = 'font-size: 80%;'>Browser default styling</span>
 ]
 ]
 
 ---
-
-## CSS adds **pizzazz** to web page renderings
+### CSS adds **pizzazz** to web page renderings
 
 .center[
-CSS allows website developers to add additional styling to web browser defaults. Otherwise, websites would be pretty boring to look at (and they'd all generally look the same).
+<span style = 'font-size: 80%;'>CSS allows website developers to add additional styling to web browser defaults. Otherwise, websites would be pretty boring to look at (and they'd all generally look the same).</span>
 ]
 
 .pull-left[
@@ -181,7 +178,7 @@ CSS allows website developers to add additional styling to web browser defaults.
 knitr::include_graphics("img/website_basic_styling.png")
 ```
 .center[
-Browser default styling
+<span style = 'font-size: 80%;'>Browser default styling</span>
 ]
 ]
 
@@ -190,17 +187,17 @@ Browser default styling
 knitr::include_graphics("img/website_with_css.png")
 ```
 .center[
-CSS styling
+<span style = 'font-size: 80%;'>CSS styling</span>
 ]
 ]
 
 ---
-## A *light* introduction to HTML - elements
+### A *light* introduction to HTML - elements
 
-HTML consists of a series of **elements**, comprised of **opening tags** and **closing tags** that render some form of content in a particular way.
+<span style = 'font-size: 80%;'>HTML consists of a series of **elements**, comprised of **opening tags** and **closing tags** that render some form of content in a particular way.</span>
 
 .center[
-**The basic anatomy of an HTML element:**
+<span style = 'font-size: 80%;'>**The basic anatomy of an HTML element:**</span>
 ]
 
 .center[
@@ -218,14 +215,14 @@ Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web
 ]
 
 ---
-## A *light* introduction to HTML - nested elements
+### A *light* introduction to HTML - nested elements
 
-You can also *nest* elements. Remember to close out tags from the inside-out to avoid unexpected renderings.
+<span style = 'font-size: 80%;'>You can also *nest* elements. Remember to close out tags from the inside-out to avoid unexpected renderings.</span>
 
 <br>
  
 .center[
-**Nested HTML elements:**
+<span style = 'font-size: 80%;'>**Nested HTML elements:**</span>
 ]
 .center[
 ```{r echo = FALSE, out.width = '60%'}
@@ -242,12 +239,12 @@ Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web
 ]
 
 ---
-## A *light* introduction to HTML - attributes
+### A *light* introduction to HTML - attributes
 
-HTML elements can also have **attributes** which contain extra information about the element that will not be rendered as visual content<sup>1</sup> on the web page. Attributes can be used in many powerful ways -- one way is to provide a class or ID as an identifier to be used for targeted styling with CSS. We will come back to this concept in a little bit.
+<span style = 'font-size: 80%;'>HTML elements can also have **attributes** which contain extra information about the element that will not be rendered as visual content<sup>1</sup> on the web page. Attributes can be used in many powerful ways -- one way is to provide a class or ID as an identifier to be used for targeted styling with CSS. We will come back to this concept in a little bit.</span>
 
 .center[
-**The basic anatomy of an attribute:**
+<span style = 'font-size: 80%;'>**The basic anatomy of an attribute:**</span>
 ]
 
 .center[
@@ -261,30 +258,30 @@ knitr::include_graphics("img/attribute.png")
 .footnote[
 <sup>1</sup>One example that you may already be familiar with is **alt text**. While you add alt text to the top of code chunks, knitting your `.Rmd` will actually add that text as an attribute on the visual content you generate (e.g. a `ggplot`) -- you cannot see it rendered on the screen, but screen readers can find it by searching for any content with the `alt` attribute to read aloud for visually impaired users.
 
-Source: [“Getting Started with HTML - Learn Web DEVELOPMENT: MDN.” Learn Web Development | MDN, developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started.](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
+Source: [Getting Started with HTML, mdn web docs](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) 
 ]
 
 
 ---
-# Some commonly used html elements
+### Some commonly used html elements
 
-* `<div></div>`: group common elements
-* `<img></img>`: present an image
-* `<h1></h1>`: creates a first-level heading (largest)
-* `<h6></h6>`: creates a sixth-level (smallest)
-* `<p></p>`: begins a new paragraph
-* `<br></br>`: adds a line break 
-* `<strong></strong>`: bolded text
-* `<em></em>`: italicized text
-* `<a></a>`: anchors (i.e. links) an HTML page to another page 
-    * e.g. `<a href="https://ucsb-meds.github.io/">text_I_want_to_hyperlink</a>`)
-* `<span></span>`: an inline container used to markup part of a text or document
-    * e.g. `My favorite color is <span style="color:green">green</span>.`
+* <span style = 'font-size: 80%;'>`<div></div>`: group common elements</span>
+* <span style = 'font-size: 80%;'>`<img></img>`: present an image</span>
+* <span style = 'font-size: 80%;'>`<h1></h1>`: creates a first-level heading (largest)</span>
+* <span style = 'font-size: 80%;'>`<h6></h6>`: creates a sixth-level (smallest)</span>
+* <span style = 'font-size: 80%;'>`<p></p>`: begins a new paragraph</span>
+* <span style = 'font-size: 80%;'>`<br></br>`: adds a line break</span>
+* <span style = 'font-size: 80%;'>`<strong></strong>`: bolded text</span>
+* <span style = 'font-size: 80%;'>`<em></em>`: italicized text</span>
+* <span style = 'font-size: 80%;'>`<a></a>`: anchors (i.e. links) an HTML page to another page</span> 
+    * <span style = 'font-size: 80%;'>e.g. `<a href="https://ucsb-meds.github.io/">text_I_want_to_hyperlink</a>`</span>
+* <span style = 'font-size: 80%;'>`<span></span>`: an inline container used to markup part of a text or document</span>
+    * <span style = 'font-size: 80%;'>e.g. `My favorite color is <span style="color:green">green</span>.`</span>
 
 ---
-## A *light* introduction to CSS
+### A *light* introduction to CSS
 
-CSS is a rule-based language, meaning that it allows you to define groups of styles that should be applied to particular elements or groups of elements on a web page. For example, *"I want all first-level (`<h1>`) headings to be large green text"* could be coded as:
+<span style = 'font-size: 80%;'>CSS is a rule-based language, meaning that it allows you to define groups of styles that should be applied to particular elements or groups of elements on a web page. For example, *"I want all first-level (`<h1>`) headings to be large green text"* could be coded as:</span>
 
 .pull-left[
 ```{r echo = FALSE, out.width = '100%'}
@@ -293,9 +290,9 @@ knitr::include_graphics("img/CSS_syntax.png")
 ]
 
 .pull-right[
-* **Selectors** define a condition to match HTML elements *(e.g. first-level headings, `<h1>`)*
-* **Declarations** sit inside curly brackets, `{}`, and are made up of **property** and **value** pairs. Each pair specifies the property of the HTML element(s) you're selecting *(e.g. the color property of the element `<h1>`)*, and a value you'd like to assign that property *(e.g. green)*
-* A property and its corresponding value are separated by a colon, `:`. Declarations end with a semicolon, `;`
+* <span style = 'font-size: 80%;'>**Selectors** define a condition to match HTML elements *(e.g. first-level headings, `<h1>`)*</span>
+* <span style = 'font-size: 80%;'>**Declarations** sit inside curly brackets, `{}`, and are made up of **property** and **value** pairs. Each pair specifies the property of the HTML element(s) you're selecting *(e.g. the color property of the element `<h1>`)*, and a value you'd like to assign that property *(e.g. green)*</span>
+* <span style = 'font-size: 80%;'>A property and its corresponding value are separated by a colon, `:`. Declarations end with a semicolon, `;`</span>
 ]
 
 <br>
@@ -305,11 +302,11 @@ Source: [“What Is CSS? - Learn Web Development: MDN.” Learn Web Development 
 ]
 
 ---
-## "Inspect"ing web pages allows you to view and edit HTML & CSS source code
+### "Inspect"ing web pages allows you to view and edit HTML & CSS source code
 
-*Don't worry -- any edits you make are only visible to you and will disappear when you refresh the web page!* Using the "Inspect" tool is a great way to get a better sense of how CSS is used to modify particular HTML elements.
+<span style = 'font-size: 80%;'>*Don't worry -- any edits you make are only visible to you and will disappear when you refresh the web page!* Using the "Inspect" tool is a great way to get a better sense of how CSS is used to modify particular HTML elements.</span>
 
-Navigate to any web page and *right click* on an element of interest (e.g. text, images, links, etc.) and choose *Inspect* to pull up the underlying HTML & CSS files. Here, I am going to  inspect the dark blue banner along the top of my `{distill}` website.
+<span style = 'font-size: 80%;'>Navigate to any web page and *right click* on an element of interest (e.g. text, images, links, etc.) and choose *Inspect* to pull up the underlying HTML & CSS files. Here, I am going to  inspect the dark blue banner along the top of my `{distill}` website.</span>
 
 .center[
 ```{r echo = FALSE, out.width = '50%'}
@@ -318,37 +315,37 @@ knitr::include_graphics("img/distill_banner_inspect1.png")
 ]
 
 ---
-## An "Inspect" roadmap
+### An "Inspect" roadmap
 
 .center[
-```{r echo = FALSE, out.width = '70%'}
+```{r echo = FALSE, out.width = '80%'}
 knitr::include_graphics("img/distill_banner_inspect2.png")
 ```
 ]
 
 ---
-## Make some edits to a web page's style by altering declaration values
+### Make some edits to a web page's style by altering declaration values
 
 .center[
-```{r echo = FALSE, out.width = '70%'}
+```{r echo = FALSE, out.width = '80%'}
 knitr::include_graphics("img/distill_banner_inspect3.png")
 ```
 ]
 
 ---
-## Check out your web page with its "edited" CSS!
+### Check out your web page with its "edited" CSS!
 
 .center[
-```{r echo = FALSE, out.width = '65%'}
+```{r echo = FALSE, out.width = '80%'}
 knitr::include_graphics("img/distill_banner_inspect4.png")
 ```
 ]
 
 .center[
-*Refreshing the web page will revert any changes you made.*
+<span style = 'font-size: 80%;'>*Refreshing the web page will revert any changes you made.*</span>
 ]
 ---
-## Okay that was like...
+### Okay that was like...
 
 <br>
 
@@ -365,9 +362,9 @@ But what's even *more* magical is how easy `{distill}` makes it to actually cust
 ]
 
 ---
-## Start by making sure you have a CSS file in your web page repo's root directory
+### Start by making sure you have a CSS file in your web page repo's root directory
 
-If you do not already have a `.css` file, you can generate one by running the `distill::create_theme()` function in your console as follows:
+<span style = 'font-size: 80%;'>If you do not already have a `.css` file, you can generate one by running the `distill::create_theme()` function in your console as follows:</span>
 
 ```{r, eval = FALSE}
 
@@ -379,7 +376,7 @@ distill::create_theme(name = "theme", edit = TRUE)
 
 --
 
-This function creates a file named `theme` with the file extension `.css`. Here is where you will define CSS custom properties and/or edit existing default values. You'll notice that there are a series of CSS rules, that should look similar to the example shown earlier ([slide 12](https://ucsb-meds.github.io/customizing-websites-css/#12)). They take the format:
+<span style = 'font-size: 80%;'>This function creates a file named `theme` with the file extension `.css`. Here is where you will define CSS custom properties and/or edit existing default values. You'll notice that there are a series of CSS rules, that should look similar to the example shown earlier ([slide 12](https://ucsb-meds.github.io/customizing-websites-css/#12)). They take the format:</span>
 
 ```{r, eval = FALSE}
 scope { # think of 'scope' as the 'selector'
@@ -393,16 +390,16 @@ This content has been adapted from the `{distill}` document on theming. This is 
 ]
 
 ---
-## The 'out-of-the-box' `theme.css` file
+### The 'out-of-the-box' `theme.css` file
 
 .center[
-```{r echo = FALSE, out.width = '70%'}
+```{r echo = FALSE, out.width = '90%'}
 knitr::include_graphics("img/theme_file.png")
 ```
 ]
 
 ---
-## Apply your theme to your `{distill}` website
+### Apply your theme to your `{distill}` website
 
 Add a theme key to the top-level of your `_site.yaml` configuration file along with the name of your `.css` file (e.g. mine is named `theme.css`). For example:
 
@@ -432,25 +429,24 @@ output: distill::distill_article
 ```
 
 ---
-## So where do we start styling??
+### So where do we start styling??
 
 .center[
-```{r echo = FALSE, out.width = '35%'}
+```{r echo = FALSE, out.width = '45%'}
 knitr::include_graphics("img/mind_blown.png")
 ```
 ]
 
 ---
-## Import custom Google Fonts at the top of your `theme.css` file
-
-<br> 
+### Import custom Google Fonts at the top of your `theme.css` file
 
 **Steps for applying custom Google fonts:**
-1. explore Google font styles [here](https://fonts.google.com/) (there are *many* to choose from)
 
-2. embed the font(s) at the top of your `theme.css` file using the [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) method<sup>1</sup> where prompted (i.e. **before** any rules are specified). Below, I'm importing the fonts, **Caveat** and **Montserrat**.
+<span style = 'font-size: 80%;'>**1.** explore Google font styles [here](https://fonts.google.com/) (there are *many* to choose from)</span<>
 
-3. specify your imported font style as values on the appropriate property types (*continued on next slide*)
+<span style = 'font-size: 80%;'>**2.** embed the font(s) at the top of your `theme.css` file using the [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) method<sup>1</sup> where prompted (i.e. **before** any rules are specified). Below, I'm importing the fonts, **Caveat** and **Montserrat**.</span>
+
+<span style = 'font-size: 80%;'>**3.** specify your imported font style as values on the appropriate property types (*continued on next slide*)</span>
 
 ```{css, eval = FALSE}
 /* Optional: embed custom fonts here with `@import`          */
@@ -464,7 +460,7 @@ knitr::include_graphics("img/mind_blown.png")
 ]
 
 ---
-# Change default font styles to any of your imported fonts
+### Change default font styles to any of your imported fonts
 
 ```{css, eval = FALSE, out.width = '70%'}
 html {
@@ -487,8 +483,9 @@ html {
   {{--navbar-font:     sans-serif;  /* websites + blogs only */}}
 }
 ```
+
 ---
-## Change default font colors by altering hex color codes<sup>1</sup> or adjusting `rbga()` values<sup>2</sup>
+### Change default font colors by altering hex color codes<sup>1</sup> or adjusting `rbga()` values<sup>2</sup>
 
 ```{css, eval = FALSE}
 html {
@@ -515,11 +512,13 @@ html {
 <br> 
 
 .footnote[
-<sup>1</sup>Generate Hex color codes using the [HTML color picker](https://htmlcolorcodes.com/color-picker/), or install the [Colorpick Eyedropper Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en), which allows you to select color values directly from web pages. <sup>2</sup>A note on `rgba(red, green, blue, alpha)`: the `red` argument, for example, defines the intensity of red between 0-255 or a % value between 0-100%; the `alpha` argument defines opacity as a number between 0.0 (fully transparent) and 1.0 (fully opaque). You can convert any Hex color code to `RBG` values using an online [converter](https://www.rapidtables.com/convert/color/hex-to-rgb.html).
+<span style = 'font-size: 80%;'><sup>1</sup>Generate Hex color codes using the [HTML color picker](https://htmlcolorcodes.com/color-picker/), or install the [Colorpick Eyedropper Chrome Extention](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en), which allows you to select color values directly from web pages.</span>  
+
+<span style = 'font-size: 80%;'><sup>2</sup>A note on `rgba(red, green, blue, alpha)`: the `red` argument, for example, defines the intensity of red between 0-255 or a % value between 0-100%; the `alpha` argument defines opacity as a number between 0.0 (fully transparent) and 1.0 (fully opaque). You can convert any Hex color code to `RBG` values using an online [converter](https://www.rapidtables.com/convert/color/hex-to-rgb.html).</span>
 ]
 
 ---
-## Change default font sizes
+### Change default font sizes
 
 ```{css, eval = FALSE, out.width = '70%'}
 html {
@@ -547,11 +546,11 @@ html {
 **Pixels** (`px`) are relative to screen size. For low-dpi (Dots Per Inch) devices, 1px is one device pixel of the display. For high resolution screens, 1px implies multiple device pixels.
 ]
 ---
-## Defining your own CSS rules may require some "Inspect"ing
+### Defining your own CSS rules may require some "Inspect"ing
 
-Creating custom CSS rules for your web site requires some sleuthing (similar to what we did while "Inspecting" our web page) and an understanding of how to apply [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp). 
+<span style = 'font-size: 80%;'>Creating custom CSS rules for your web site requires some sleuthing (similar to what we did while "Inspecting" our web page) and an understanding of how to apply [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp).</span>
 
-For example, say I want to change the color of the headings, *Biography*, *Education*, and *Experience* on my landing page to pink (hex code <span style="color: #C41A60;">#C41A60</span>). *Inspecting* these headings reveals that they are all `<h3>` elements. 
+<span style = 'font-size: 80%;'>For example, say I want to change the color of the headings, *Biography*, *Education*, and *Experience* on my landing page to pink (hex code <span style="color: #C41A60;">#C41A60</span>). *Inspecting* these headings reveals that they are all `<h3>` elements.</span>
 
 .pull-left[
 ```{r echo = FALSE, out.width = '100%'}
@@ -566,9 +565,9 @@ knitr::include_graphics("img/h3.png")
 ]
 
 ---
-## Construct custom CSS rules that target groups of elements
+### Construct custom CSS rules that target groups of elements
 
-Following the [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp) guide, we can construct a custom CSS rule that will color any `<h3>` element on our website <span style="color: #C41A60;">pink</span>:
+<span style = 'font-size: 80%;'>Following the [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp) guide, we can construct a custom CSS rule that will color any `<h3>` element on our website <span style="color: #C41A60;">pink</span>:</span>
 ```{css, eval = FALSE}
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below */
@@ -579,44 +578,42 @@ h3 {
 ```
 
 .center[
-```{r echo = FALSE, out.width = '40%'}
+```{r echo = FALSE, out.width = '60%'}
 knitr::include_graphics("img/pink_h3.png")
 ```
 ]
 
 ---
-## "Cheat" code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
+### "Cheat" code: you can use *inline* style directly in your `.Rmd` to alter the appearence of web page content
 
-For example, you can use the `<span>` tag styled with CSS to update text in your `.Rmd` file. 
+<span style = 'font-size: 80%;'>For example, you can use the `<span>` tag styled with CSS to update text in your `.Rmd` file.</span>
 
-`MA in Ecology, Evolution & Marine Biology, 
-<span style="color: #EC100D;">2020</span>` will render as:
+<span style = 'font-size: 80%;'>`MA in Ecology, Evolution & Marine Biology, 
+<span style="color: #EC100D;">2020</span>` will render as:</span>
 
 .center[
-```{r echo = FALSE, out.width = '50%'}
+```{r echo = FALSE, out.width = '70%'}
 knitr::include_graphics("img/red2020.png")
 ```
 ]
 
 ---
-## Get inspired by sites on the [distillery](https://distillery.rbind.io/) and borrow open source code
-
-<br>
+### Get inspired by sites on the [distillery](https://distillery.rbind.io/) and borrow open source code
 
 .center[
-```{r, out.width = '60%', echo = FALSE}
+```{r, out.width = '70%', out.height = '70%', echo = FALSE}
 knitr::include_url("https://distillery.rbind.io/")
 ```
 ]
 
 .footnote[
-One of the more challenging parts of creating custom CSS rules (for newbies like myself) is knowing what **selectors** to use and what is design patterns are even possible. Looking at (and borrowing) source code for other `{distill}` sites can help jump start your own custom CSS styling.
+<span style = 'font-size: 80%;'>One of the more challenging parts of creating custom CSS rules (for newbies like myself) is knowing what **selectors** to use and what is design patterns are even possible. Looking at (and borrowing) source code for other `{distill}` sites can help jump start your own custom CSS styling.</span>
 ]
 
 ---
-## Let's try borrowing some code
+### Let's try borrowing some code
 
-I came across [Jenna Eagleson's web site](https://jeagleso.github.io/website/) on the [Distillery Showcase](https://distillery.rbind.io/showcase.html) and loved the way her headings appear. You can check out all of her custom CSS rules at the bottom of her website's [theme.css file](https://github.com/jeagleso/website/blob/main/theme.css).
+<span style = 'font-size: 80%;'>I came across [Jenna Eagleson's web site](https://jeagleso.github.io/website/) on the [Distillery Showcase](https://distillery.rbind.io/showcase.html) and loved the way her headings appear. You can check out all of her custom CSS rules at the bottom of her website's [theme.css file](https://github.com/jeagleso/website/blob/main/theme.css).</span>
 
 .pull-left[
 ```{r echo = FALSE, out.width = '100%'}
@@ -631,9 +628,9 @@ knitr::include_graphics("img/JEagleson_theme.png")
 ]
 
 ---
-## Adapting custom CSS rules for your own website
+### Adapting custom CSS rules for your own website
 
-I see a rule which styles any `h1` - `h6` heading elements with a particular font-weight, color, and spacing between letters. 
+<span style = 'font-size: 80%;'>I see a rule which styles any `h1` - `h6` heading elements with a particular font-weight, color, and spacing between letters.</span>
 ```{css, eval = FALSE}
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 2px;
@@ -642,7 +639,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 ```
 
-I just want to apply the letter-spacing and font-weight styles to my headings, so I'll borrow those declarations and omit the color declaration. I'm also going to increase the letter-spacing style from `2px` to `5px`:
+<span style = 'font-size: 80%;'>I just want to apply the letter-spacing and font-weight styles to my headings, so I'll borrow those declarations and omit the color declaration. I'm also going to increase the letter-spacing style from `2px` to `5px`:</span>
 ```{css, eval = FALSE}
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 5px;
@@ -651,14 +648,16 @@ h1, h2, h3, h4, h5, h6 {
 ```
 
 ---
-## Voila!
+### Voila!
+
+<br>
 
 .pull-left[
 ```{r echo = FALSE, out.width = '100%'}
 knitr::include_graphics("img/half_edit.png")
 ```
 .center[
-Without letter spacing
+<span style = 'font-size: 80%;'>Without letter spacing</span?
 ]
 ]
 
@@ -667,27 +666,27 @@ Without letter spacing
 knitr::include_graphics("img/full_edit.png")
 ```
 .center[
-With letter spacing
+<span style = 'font-size: 80%;'>With letter spacing</span>
 ]
 ]
 
 ---
-class: center, middle
+class: inverse, center, middle
 
-## The "other stuff"
+### The "other stuff"
 
 ---
-## Adding a footer to your website
+### Adding a footer to your website
 
-There are a variety of ways to add a footer (the section of content typically included at the bottom of web pages) to your web page. Ultimately, you'll need to add a `_footer.html` file to the root directory of your `distill` site repository. These are the steps I followed:
+<span style = 'font-size: 80%;'>There are a variety of ways to add a footer (the section of content typically included at the bottom of web pages) to your web page. Ultimately, you'll need to add a `_footer.html` file to the root directory of your `distill` site repository. These are the steps I followed:</span>
 
-1. Choose `New File -> R HTML`
-2. Delete all auto-filled content (lines 1-22)
-3. Save and name `_footer.html` (a popup box will ask if you'd like to use the standard extension ".Rhtml" or ".html" -- choose "Use .html")
-4. Add content using HTML markup, save, and knit
-5. Build your site to see you footer!
+<span style = 'font-size: 80%;'>**1.** Choose `New File -> R HTML`</span>  
+<span style = 'font-size: 80%;'>**2.** Delete all auto-filled content (lines 1-22)</span>  
+<span style = 'font-size: 80%;'>**3.** Save and name `_footer.html` (a popup box will ask if you'd like to use the standard extension ".Rhtml" or ".html" -- choose "Use .html")</span>  
+<span style = 'font-size: 80%;'>**4.** Add content using HTML markup, save, and knit</span>  
+<span style = 'font-size: 80%;'>**5.** Build your site to see you footer!</span>  
 
-One great example is the [MEDS Website](https://ucsb-meds.github.io/). The code used to generate that footer is as follows:
+<span style = 'font-size: 80%;'>One great example is the [MEDS Website](https://ucsb-meds.github.io/). The code used to generate that footer is as follows:</span>
 
 ```{html, eval = FALSE}
 <p>
@@ -701,13 +700,14 @@ One great example is the [MEDS Website](https://ucsb-meds.github.io/). The code 
 
 
 ---
-## Add your CV to your website
+### Add your CV to your website
 
-There are a few ways to include your resume/CV on your website (aside from translating all your CV content into your `Rmd` using R Markdown syntax). 
+<span style = 'font-size: 80%;'>There are a few ways to include your resume/CV on your website (aside from translating all your CV content into your `Rmd` using R Markdown syntax).</span>
 
-1. Add a link for visitors to download your CV.pdf 
-    * for example: `[Download my CV here](file/path/to/my/cv.pdf)` would render as [Download my CV here](img/cv_example.pdf)
-2. Hyperlink your CV.pdf to a navbar tab in `_site.yml` -- when you click on that tab, it takes you directy to a pdf viewer
+<span style = 'font-size: 80%;'>**1.** Add a link for visitors to download your CV.pdf (e.g. `[Download my CV here](file/path/to/my/cv.pdf)` renders as [Download my CV here](img/cv_example.pdf)) </span>  
+
+
+<span style = 'font-size: 80%;'>**2.** Hyperlink your CV.pdf to a navbar tab in `_site.yml` -- when you click on that tab, it takes you directy to a pdf viewer</span>  
 ```{r, eval = FALSE}
 navbar:
   right:
@@ -717,30 +717,27 @@ navbar:
       href: path/to/my/cv.pdf
 ```
 
-3. Add a scrollable plugin<sup>1</sup> to render your pdf directly on-screen using the function
+<span style = 'font-size: 80%;'>**3.** Add a scrollable plugin to render your pdf directly on-screen using the function</span>
 ```{r, eval = FALSE}
 knitr::include_graphics("file/path/to/my/cv.pdf")
 ```
 
 ```{r, echo = FALSE, message = FALSE, out.width = '100%', out.height = '40%'}
-knitr::include_graphics("img/cv_example.pdf")
+#knitr::include_graphics("img/cv_example.pdf")
 ```
 
-.footnote[
-<sup>1</sup>I'm still trouble-shooting this method...open to any and all tips if you've figured this out already!
-]
-
 ---
-## Additional Resources
+### Additional Resources
 
-* [rstudio4edu Chapter 25: Make it fancier](https://rstudio4edu.github.io/rstudio4edu-book/distill-fancy.html)
-* [The Mockup Blog: Building a blog with distill](https://themockup.blog/posts/2020-08-01-building-a-blog-with-distill/ ) 
-* [Package 'distill' documentation](https://cran.r-project.org/web/packages/distill/distill.pdf)
-* [jhelvy.com: Customizing distill with {htmltools} and CSS](https://www.jhelvy.com/posts/2021-03-25-customizing-distill-with-htmltools-and-css/)
+* <span style = 'font-size: 80%;'>[rstudio4edu Chapter 25: Make it fancier](https://rstudio4edu.github.io/rstudio4edu-book/distill-fancy.html)</span>
+* <span style = 'font-size: 80%;'>[The Mockup Blog: Building a blog with distill](https://themockup.blog/posts/2020-08-01-building-a-blog-with-distill/ )</span>  
+* <span style = 'font-size: 80%;'>[Package 'distill' documentation](https://cran.r-project.org/web/packages/distill/distill.pdf)</span>
+* <span style = 'font-size: 80%;'>[jhelvy.com: Customizing distill with {htmltools} and CSS](https://www.jhelvy.com/posts/2021-03-25-customizing-distill-with-htmltools-and-css/)</span>
+
 ---
 class: center, middle
 
-# Now get to customizing!
+### Now get to customizing!
 
 ```{r echo = FALSE, out.width = '60%'}
 knitr::include_graphics("img/hacker.gif")

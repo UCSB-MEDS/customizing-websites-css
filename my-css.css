@@ -1,3 +1,14 @@
+/* default font size */ 
+/*.remark-slide-content {
+    font-size: 5px;
+    padding: 1em 4em 1em 4em;
+} */
+
+/* one page font */
+/* .my-one-page-font {
+  font-size: 20px;
+} */
+
 /* centers code vertically */ 
 .center2 {
   margin: 0;
@@ -12,5 +23,6 @@
 /* makes code chunk text smaller */ 
 .remark-code {
   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
-  font-size: 70%;
+  font-size: 60%;
  }
+
